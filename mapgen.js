@@ -58,12 +58,14 @@ function setup() {
     '    "svgwidth": 512,\n' +
     '    "svgheight": 512,\n' +
     '    "bgcolor": "#FFFFEE",\n' +
+    '    "stationlabelfont": "Helvetica",\n' +
+    '    "stationlabelfontsize": "12px",\n' +
     '    "stationtypes": [\n' +
     '        {\n' +
     '            "id": "station1",\n' +
     '            "stationformat": "circle",\n' +
-    '            "stationrad": 6,\n' +
-    '            "stationstrokewidth": 2,\n' +
+    '            "stationrad": 4,\n' +
+    '            "stationstrokewidth": 1,\n' +
     '            "stationcolor": "#FFFFFF",\n' +
     '            "stationstrokecolor": "#000000"\n' +
     '        }\n' +
@@ -82,6 +84,15 @@ function setup() {
     '                {"type": "curve", "src": [336, 320], "dest": [352, 304], "arcrad": 16, "arcdir": 0},\n' +
     '                {"type": "straight", "src": [352, 304], "dest": [352, 256]}\n' +
     '            ]\n' +
+    '       }\n' +
+    '    ],\n' +
+    '    "stations": [\n' +
+    '        {\n' +
+    '            "label": "Owings Mills",\n' +
+    '            "textanchor": "start",\n' +
+    '            "type": "station1",\n' +
+    '            "location": [64, 64],\n' +
+    '            "labeloffset": [6, -6]\n' +
     '       }\n' +
     '    ]\n' +
     '}';
@@ -117,6 +128,37 @@ function mapgen() {
         }
         linepath += '"></path>';
         svg += linepath;
+    }
+
+    var mapstations = mapobj.stations;
+    for (var i = 0; i < mapstations.length; i += 1) {
+        var stationobj = mapstations[i];
+        //We need to figure out what the map type object is
+        var typeID = stationobj.type;
+        var typeobj;
+        for (var j = 0; j < mapobj.stationtypes.length; j += 1) {
+            if (mapobj.stationtypes[j].id === typeID) {
+                typeobj = mapobj.stationtypes[j];
+            }
+        }
+        if (typeobj === undefined || typeobj === null) {
+            alert("No station type was found for " + typeID + ", for station " + stationobj.label);
+        }
+        //Generate SVG
+        var stationsvg = '';
+        if (typeobj.stationformat === "circle") {
+            stationsvg += '<circle cx="' + stationobj.location[0] + '" cy="' + stationobj.location[1] + '" r="' + typeobj.stationrad + '" fill="' + typeobj.stationcolor + '" stroke="' + typeobj.stationstrokecolor + '" stroke-width="' + typeobj.stationstrokewidth + '"></circle>';
+        } else if (typeobj.stationformat === "square") {
+
+        } else if (typeobj.stationformat === "custom") {
+            //TODO
+        }
+
+        svg += stationsvg;
+
+        //Now handle the label
+        var labelsvg = '<text x="' + (stationobj.location[0] + stationobj.labeloffset[0]) + '" y="' + (stationobj.location[1] + stationobj.labeloffset[1]) + '" font-family="' + mapobj.stationlabelfont + '" font-size="' + mapobj.stationlabelfontsize + '" fill="black" dominant-baseline="central" text-anchor="' + stationobj.textanchor + '">' + stationobj.label + '</text>';
+        svg += labelsvg;
     }
 
     svg += '</svg>';
