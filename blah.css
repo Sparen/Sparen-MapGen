@@ -1,0 +1,12 @@
+#displaybox {
+    width: 576px; 
+    height: 576px; 
+    border: 2px solid black;
+    float: left;
+}
+
+#jsonbox {
+    font-family:'Andale Mono', monospace;
+    width: 576px; 
+    height: 576px; 
+}
