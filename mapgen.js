@@ -71,6 +71,7 @@ function mapgen() {
 
     svg += '<rect x="0" y="0" height="' + mapobj.svgheight + '" width="' + mapobj.svgwidth + '" fill="' + mapobj.bgcolor + '"></rect>';
 
+    var goffset = mapobj.globaloffset;
     var maplines = mapobj.lines;
     for (var i = 0; i < maplines.length; i += 1) {
         var lineobj = maplines[i];
@@ -78,11 +79,11 @@ function mapgen() {
         var linepathcomponents = lineobj.path;
         for (var j = 0; j < linepathcomponents.length; j += 1) {
             var lpcobj = linepathcomponents[j];
-            linepath += 'M ' + lpcobj.src[0] + ' ' + lpcobj.src[1] + ' ';
+            linepath += 'M ' + (lpcobj.src[0] + goffset[0]) + ' ' + (lpcobj.src[1] + goffset[1]) + ' ';
             if (lpcobj.type === "straight") {
-                linepath += 'L ' + lpcobj.dest[0] + ' ' + lpcobj.dest[1] + ' ';
+                linepath += 'L ' + (lpcobj.dest[0] + goffset[0]) + ' ' + (lpcobj.dest[1] + goffset[1]) + ' ';
             } else if (lpcobj.type === "curve") {
-                linepath += 'A ' + lpcobj.arcrad + ' ' + lpcobj.arcrad + ' 1 0 ' + lpcobj.arcdir + ' ' + lpcobj.dest[0] + ' ' + lpcobj.dest[1] + ' ';
+                linepath += 'A ' + lpcobj.arcrad + ' ' + lpcobj.arcrad + ' 1 0 ' + lpcobj.arcdir + ' ' + (lpcobj.dest[0] + goffset[0]) + ' ' + (lpcobj.dest[1] + goffset[1]) + ' ';
             } //else if custom svg
         }
         linepath += '"></path>';
@@ -106,9 +107,9 @@ function mapgen() {
         //Generate SVG
         var stationsvg = '';
         if (typeobj.stationformat === "circle") {
-            stationsvg += '<circle cx="' + stationobj.location[0] + '" cy="' + stationobj.location[1] + '" r="' + typeobj.stationrad + '" fill="' + typeobj.stationcolor + '" stroke="' + typeobj.stationstrokecolor + '" stroke-width="' + typeobj.stationstrokewidth + '"></circle>';
+            stationsvg += '<circle cx="' + (stationobj.location[0] + goffset[0]) + '" cy="' + (stationobj.location[1] + goffset[1]) + '" r="' + typeobj.stationrad + '" fill="' + typeobj.stationcolor + '" stroke="' + typeobj.stationstrokecolor + '" stroke-width="' + typeobj.stationstrokewidth + '"></circle>';
         } else if (typeobj.stationformat === "square") {
-
+            stationsvg += '<rect x="' + (stationobj.location[0] + goffset[0] - typeobj.stationrad) + '" y="' + (stationobj.location[1] + goffset[1] - typeobj.stationrad) + '" height="' + (typeobj.stationrad * 2) + '" width="' + (typeobj.stationrad * 2) + '" fill="' + typeobj.stationcolor + '" stroke="' + typeobj.stationstrokecolor + '" stroke-width="' + typeobj.stationstrokewidth + '"></rect>';
         } else if (typeobj.stationformat === "custom") {
             //TODO
         }
@@ -116,7 +117,7 @@ function mapgen() {
         svg += stationsvg;
 
         //Now handle the label
-        var labelsvg = '<text x="' + (stationobj.location[0] + stationobj.labeloffset[0]) + '" y="' + (stationobj.location[1] + stationobj.labeloffset[1]) + '" font-family="' + mapobj.stationlabelfont + '" font-size="' + mapobj.stationlabelfontsize + '" fill="black" dominant-baseline="central" text-anchor="' + stationobj.textanchor + '">' + stationobj.label + '</text>';
+        var labelsvg = '<text x="' + (stationobj.location[0] + goffset[0] + stationobj.labeloffset[0]) + '" y="' + (stationobj.location[1] + goffset[1] + stationobj.labeloffset[1]) + '" font-family="' + mapobj.stationlabelfont + '" font-size="' + mapobj.stationlabelfontsize + '" fill="black" dominant-baseline="central" text-anchor="' + stationobj.textanchor + '">' + stationobj.label + '</text>';
         svg += labelsvg;
     }
 
