@@ -34,6 +34,14 @@ function genPrefab_Baltimore() {
     '            "stationstrokewidth": 0.5,\n' +
     '            "stationcolor": "#FFFFFF",\n' +
     '            "stationstrokecolor": "#CCCCCC"\n' +
+    '        },\n' +
+    '        {\n' +
+    '            "id": "station3",\n' +
+    '            "stationformat": "square",\n' +
+    '            "stationrad": 2.5,\n' +
+    '            "stationstrokewidth": 0.5,\n' +
+    '            "stationcolor": "#FFFFFF",\n' +
+    '            "stationstrokecolor": "#CCCCCC"\n' +
     '        }\n' +
     '    ],\n' +
     '    "lines": [\n' +
@@ -75,6 +83,15 @@ function genPrefab_Baltimore() {
     '            "linewidth": 3,\n' +
     '            "path": [\n' +
     '                {"type": "straight", "src": [265.5, 28], "dest": [265.5, 524]}\n' +
+    '            ]\n' +
+    '       },\n' +
+    '       {\n' +
+    '            "id": "Baltimore Light Rail Shuttle",\n' +
+    '            "linecolor": "#FF6666",\n' +
+    '            "linewidth": 3,\n' +
+    '            "path": [\n' +
+    '                {"type": "straight", "src": [284, 240], "dest": [267.5, 240]},\n' +
+    '                {"type": "straight", "src": [268.5, 239], "dest": [268.5, 364]}\n' +
     '            ]\n' +
     '       }\n' +
     '    ],\n' +
@@ -276,59 +293,66 @@ function genPrefab_Baltimore() {
     '            "labeloffset": [8, 0]\n' +
     '       },\n' +
     '       {\n' +
-    '            "label": "U Baltimore/",\n' +
+    '            "label": "Penn Station",\n' +
     '            "textanchor": "start",\n' +
     '            "type": "station2",\n' +
-    '            "location": [264, 256],\n' +
+    '            "location": [280, 240],\n' +
+    '            "labeloffset": [8, 0]\n' +
+    '       },\n' +
+    '       {\n' +
+    '            "label": "U Baltimore/",\n' +
+    '            "textanchor": "start",\n' +
+    '            "type": "station3",\n' +
+    '            "location": [265.5, 256],\n' +
     '            "labeloffset": [8, -5]\n' +
     '       },\n' +
     '       {\n' +
     '            "label": "Mt. Royal",\n' +
     '            "textanchor": "start",\n' +
-    '            "type": "station2",\n' +
-    '            "location": [264, 256],\n' +
+    '            "type": "station3",\n' +
+    '            "location": [265.5, 256],\n' +
     '            "labeloffset": [8, 5]\n' +
     '       },\n' +
     '       {\n' +
     '            "label": "Cultural Center",\n' +
     '            "textanchor": "start",\n' +
-    '            "type": "station2",\n' +
-    '            "location": [264, 272],\n' +
+    '            "type": "station3",\n' +
+    '            "location": [265.5, 272],\n' +
     '            "labeloffset": [8, 0]\n' +
     '       },\n' +
     '       {\n' +
     '            "label": "Centre Street",\n' +
     '            "textanchor": "start",\n' +
-    '            "type": "station2",\n' +
-    '            "location": [264, 284],\n' +
+    '            "type": "station3",\n' +
+    '            "location": [265.5, 284],\n' +
     '            "labeloffset": [8, 0]\n' +
     '       },\n' +
     '       {\n' +
     '            "label": "Lexington Mkt",\n' +
     '            "textanchor": "start",\n' +
-    '            "type": "station2",\n' +
-    '            "location": [264, 296],\n' +
+    '            "type": "station3",\n' +
+    '            "location": [265.5, 296],\n' +
     '            "labeloffset": [8, 0]\n' +
     '       },\n' +
     '       {\n' +
     '            "label": "University Center/Baltimore St.",\n' +
     '            "textanchor": "end",\n' +
-    '            "type": "station2",\n' +
-    '            "location": [264, 328],\n' +
+    '            "type": "station3",\n' +
+    '            "location": [265.5, 328],\n' +
     '            "labeloffset": [-8, 0]\n' +
     '       },\n' +
     '       {\n' +
     '            "label": "Convention Center",\n' +
     '            "textanchor": "end",\n' +
-    '            "type": "station2",\n' +
-    '            "location": [264, 344],\n' +
+    '            "type": "station3",\n' +
+    '            "location": [265.5, 344],\n' +
     '            "labeloffset": [-8, 0]\n' +
     '       },\n' +
     '       {\n' +
     '            "label": "Camden Yards",\n' +
     '            "textanchor": "end",\n' +
-    '            "type": "station2",\n' +
-    '            "location": [264, 360],\n' +
+    '            "type": "station3",\n' +
+    '            "location": [265.5, 360],\n' +
     '            "labeloffset": [-8, 0]\n' +
     '       },\n' +
     '       {\n' +

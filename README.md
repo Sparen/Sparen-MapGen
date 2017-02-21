@@ -20,11 +20,11 @@ Stations are placed using the station types declared in the JSON input. Labels a
 
 -Generate SVG transit map from specific JSON structure
 -Support for generating SVG paths from given input, using provided customization options.
--Support for circle station icons, and station labels with pixel offsets and customizable font options
+-Support for circle and square station icons
+-Support for station labels with pixel offsets and customizable font options
 
 ### Planned Features
 
--Implement square station icons
 -Implement zoom and click-drag
 -Implement custom curves for path segments
 -Implement angled labels
