@@ -1,5 +1,11 @@
 "use strict"
 
+function genPrefab_FirstTimeUser() {
+    return '// Welcome to mapgen, a tool for generating simple SVG transit maps.\n' +
+    '// To start, check out a premade map for examples.\n' +
+    '// Copyright Andrew Fan 2017\n\n';
+}
+
 function genPrefab_Baltimore() {
     return '// Welcome to mapgen, a tool for generating simple SVG transit maps.\n' +
     '// All lines prefixed with // as the VERY FIRST TWO CHARACTERS ONLY will be ignored upon submit.\n\n' +

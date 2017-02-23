@@ -1,5 +1,7 @@
 "use strict"
 
+/* ----- LOADING FROM FILE ----- */
+
 function getFileContents(filepath) {
     console.log("getFileContents(): Running");
     var client = new XMLHttpRequest();
@@ -20,6 +22,54 @@ function getFileContents(filepath) {
 function loadFileToTextArea(jsonobj) {
     document.getElementById("jsonbox").value = JSON.stringify(jsonobj);
 }
+
+/* ----- SETUP AND LOAD/SAVE ----- */
+
+//Setup first time on load. Defaults to Baltimore
+function setup() {
+    if (typeof(Storage) !== "undefined") {
+        //If preexisting work exists, load it.
+        var temp = localStorage.getItem("storage");
+        if (temp !== undefined && temp !== null && temp !== "") {
+            document.getElementById("jsonbox").value = temp;
+            return;
+        }
+    } else {
+        alert("Your browser does not support Local Storage. Please consider Load/Save from JSON file.");
+    }
+    //Initialize contents of text area
+    document.getElementById("jsonbox").value = genPrefab_FirstTimeUser();
+}
+
+//Generalized setup function for premade maps
+function loadPrefab(city) {
+    saveLS();
+    if (city === "Baltimore") {
+        document.getElementById("jsonbox").value = genPrefab_Baltimore();
+    }
+}
+
+//Save to local storage
+function saveLS() {
+    if (typeof(Storage) !== "undefined") {
+        localStorage.setItem("storage", document.getElementById("jsonbox").value);
+        alert("Your work has been saved in Local Storage.");
+    } else {
+        alert("Your browser does not support Local Storage. Please consider Load/Save from JSON file.");
+    }
+}
+
+//Load from local storage
+function loadLS() {
+    if (typeof(Storage) !== "undefined") {
+        document.getElementById("jsonbox").value = localStorage.getItem("storage");
+        alert("Your work has been loaded from Local Storage.");
+    } else {
+        alert("Your browser does not support Local Storage. Please consider Load/Save from JSON file.");
+    }
+}
+
+/* ----- RENDERING MAP ----- */
 
 //Return input without comments (to provide valid JSON)
 function pruneComments(input) {
@@ -42,19 +92,6 @@ function pruneComments(input) {
     }
     console.log("DEBUG: output = \n" + output);
     return output;
-}
-
-//Setup first time on load. Defaults to Baltimore
-function setup() {
-    //Initialize contents of text area
-    document.getElementById("jsonbox").value = genPrefab_Baltimore();
-}
-
-//Generalized setup function
-function loadPrefab(city) {
-    if (city === "Baltimore") {
-        document.getElementById("jsonbox").value = genPrefab_Baltimore();
-    }
 }
 
 function mapgen() {

@@ -22,6 +22,7 @@ Stations are placed using the station types declared in the JSON input. Labels a
 -Support for generating SVG paths from given input, using provided customization options.
 -Support for circle and square station icons
 -Support for station labels with pixel offsets and customizable font options
+-Support for load/save to Local Storage (and loading saved work on startup)
 
 ### Planned Features
 
@@ -30,7 +31,7 @@ Stations are placed using the station types declared in the JSON input. Labels a
 -Implement angled labels
 -Implement automatic map key generation
 -Implement custom station icons
--Implement Save to Local Storage
+-Implement label object array for custom text placement
 -Implement Export to JSON file
 -Implement Export to SVG file
 -Implement Export to PDF document
