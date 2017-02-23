@@ -13,13 +13,28 @@
           <p>MapGen is a tool to assist in the creation of transit maps. It uses JSON to define various fields.</p>
           <p>It is imperative that proper JSON formatting is used - invalid or malformed JSON will result in errors when the system tries to render the map.</p>
           <h2>Getting Started</h2>
-          <p>TODO</p>
+          <p>If you are a first time user, we suggest loading a pre-made map as a reference (see the buttons above). You will notice lines prefixed by <code>//</code> - these are comments and will be ignored when a map is generated. <strong>These comments only work when the <code>//</code> are the first two characters in a line.</strong>.</p>
+          <p>Hit the Generate Map button, and the JSON in the text box will be parsed to generate a SVG map in the empty box. There are also buttons for Save and Load - this will be discussed later.</p>
           <h2>Global Values</h2>
-          <p>TODO</p>
+          <p>Within every map, there are a number of values at the top that are required for all maps.</p>
+          <p><code>svgwidth</code>: Width of the SVG Canvas, in pixels</p>
+          <p><code>svgheight</code>: Height of the SVG Canvas, in pixels</p>
+          <p><code>globaloffset</code>: Offset used for shifting contents of map, in pixels. First value corresponds to x direction, second value corresponds to y direction. Y direction increases doing downwards. Use [0, 0] if you do not want an offset.</p>
+          <p><code>bgcolor</code>: Color of the SVG Canvas. Supports Hex, rgb, and HTML colors.</p>
+          <p><code>stationlabelfont</code>: Font used for all station labels</p>
+          <p><code>stationlabelfontsize</code>: Font size used for all station labels</p>
           <h2>Setting up Lines</h2>
           <p>TODO</p>
+          <p></p>
+          <p></p>
           <h2>Setting up Stations</h2>
           <p>TODO</p>
+          <p></p>
+          <p></p>
+          <h2>Saving and Loading</h2>
+          <p>TODO</p>
+          <p></p>
+          <p></p>
         </div>      </div>    </div>
     <script type="text/javascript" src="./prefab.js"></script>
     <script type="text/javascript" src="./mapgen.js"></script>  </body></html>
