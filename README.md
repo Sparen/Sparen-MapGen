@@ -38,7 +38,7 @@ Stations are placed using the station types declared in the JSON input. Labels a
 
 ### Documentation
 
-TODO
+Documentation is provided in the main webpage. Scroll down past the buttons to view.
 
 ### Notes
 

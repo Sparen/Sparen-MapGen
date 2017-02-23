@@ -1,13 +1,13 @@
 "use strict"
 
 function genPrefab_FirstTimeUser() {
-    return '// Welcome to mapgen, a tool for generating simple SVG transit maps.\n' +
-    '// To start, check out a premade map for examples.\n' +
+    return '// Welcome to MapGen, a tool for generating simple SVG transit maps.\n' +
+    '// To start, check out a premade map for examples, or view the documentation below the buttons.\n' +
     '// Copyright Andrew Fan 2017\n\n';
 }
 
 function genPrefab_Baltimore() {
-    return '// Welcome to mapgen, a tool for generating simple SVG transit maps.\n' +
+    return '// Welcome to MapGen, a tool for generating simple SVG transit maps.\n' +
     '// All lines prefixed with // as the VERY FIRST TWO CHARACTERS ONLY will be ignored upon submit.\n\n' +
     '// Usage instructions:\n// First, declare your desired height and width after svgheight and svgwidth, respectively.\n' +
     '// Next, state the default background color for your entire canvas under bgcolor.\n' +
@@ -15,7 +15,7 @@ function genPrefab_Baltimore() {
     '// In stationtypes, you define station icons. ID is the name you use to refer to a given type.\n' +
     '// stationformat is either "circle" or "square". stationrad will be the radius for circle and half the length of a side for square.\n' +
     '// If you don\'t want a border, set stroke width to 0.\n\n' +
-    '// Lines are defined using path segments.\n' +
+    '// For more information, see the documentation below the buttons.\n' +
     '// Copyright Andrew Fan 2017\n\n' +
     '{\n' +
     '    "svgwidth": 512,\n' +

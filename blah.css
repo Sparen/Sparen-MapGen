@@ -10,3 +10,7 @@
     width: 576px; 
     height: 576px; 
 }
+
+#docs {
+    font-family: 'Arial', 'Helvetica';
+}
